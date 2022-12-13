@@ -10,7 +10,7 @@ RUN git clone https://github.com/TgCatUB/catuserbot /root/userbot
 
 RUN mkdir /var/run/sshd
 
-RUN echo 'catub:catub' |chpasswd
+RUN echo 'root:root' |chpasswd
 RUN passwd --expire root
 
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
