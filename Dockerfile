@@ -20,7 +20,7 @@ RUN mkdir /root/.ssh
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN cd /root/catuserbot && mv exampleconfig.py config.py && screen -S catuserbot
+RUN cd /root/catuserbot && mv exampleconfig.py config.py
 RUN cd /root/catuserbot && screen -S catuserbot
 RUN virtualenv venv
 RUN source venv/bin/activate
