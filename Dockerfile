@@ -7,6 +7,7 @@ RUN sudo apt install --no-install-recommends -y curl git libffi-dev libjpeg-dev 
 
 RUN git clone https://github.com/TgCatUB/catuserbot /root/catuserbot
 RUN pip3 install git+https://github.com/jisan09/Telethon
+RUN cd /root/catuserbot && mv exampleconfig.py config.py
 
 RUN mkdir /var/run/sshd
 
@@ -19,12 +20,6 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN mkdir /root/.ssh
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN cd /root/catuserbot && mv exampleconfig.py config.py
-RUN cd /root/catuserbot && screen -S catuserbot
-RUN virtualenv venv
-RUN source venv/bin/activate
-RUN pip3 install --no-cache-dir -r requirements.txt
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
