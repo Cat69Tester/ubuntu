@@ -24,6 +24,7 @@ RUN apt-get clean && \
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
+RUN script /dev/null
 RUN cd /root/catuserbot && screen -S catuserbot
 RUN virtualenv venv
 RUN source venv/bin/activate
