@@ -26,6 +26,6 @@ CMD ["/usr/sbin/sshd", "-D"]
 
 
 RUN cd /root/catuserbot && screen -dm -S catuserbot
-RUN virtualenv venv
+RUN screen -dm -r catuserbot && virtualenv venv 
 RUN source venv/bin/activate
 #RUN pip3 install --no-cache-dir -r requirements.txt
