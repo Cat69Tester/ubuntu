@@ -25,7 +25,7 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
 
-RUN cd /root/catuserbot && screen -m -S catuserbot
+RUN cd /root/catuserbot && screen -dm -S catuserbot
 RUN virtualenv venv
 RUN source venv/bin/activate
 #RUN pip3 install --no-cache-dir -r requirements.txt
